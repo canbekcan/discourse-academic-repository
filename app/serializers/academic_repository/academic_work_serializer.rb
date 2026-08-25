@@ -2,10 +2,12 @@
 
 module ::AcademicRepository
   class AcademicWorkSerializer < ::ApplicationSerializer
-    # BlockedSerializationError almamak için sadece dışarı açılması güvenli olan alanlar
     attributes :id, :work_type, :title, :abstract, :doi, :isbn, :publication_date, :venue_name
     
+    # Resolves to AcademicRepository::AcademicAuthorSerializer via Zeitwerk
     has_many :authors, serializer: AcademicAuthorSerializer
-    has_one :creator, serializer: BasicUserSerializer
+    
+    # Must use :: to break out of the engine namespace and access Discourse Core
+    has_one :creator, serializer: ::BasicUserSerializer
   end
 end
