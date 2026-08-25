@@ -18,17 +18,17 @@ export default class AddAcademicWorkConnector extends Component {
   openSubmissionModal() {
     this.modal.show(AcademicSubmissionModal);
   }
-
-  <template>
-    {{#if this.shouldShow}}
-      <li class="add-academic-work-btn">
-        <DButton
-          @icon="book"
-          @label="js.academic_repository.button.add_publication"
-          @action={{this.openSubmissionModal}}
-          class="btn-primary"
-        />
-      </li>
-    {{/if}}
-  </template>
 }
+
+<template>
+  {{#if this.shouldShow}}
+    <li class="add-academic-work-btn">
+      <DButton
+        @icon="book"
+        @label="js.academic_repository.button.add_publication"
+        @action={{this.openSubmissionModal}}
+        class="btn-primary"
+      />
+    </li>
+  {{/if}}
+</template>
