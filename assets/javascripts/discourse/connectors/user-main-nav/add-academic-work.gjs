@@ -4,12 +4,12 @@ import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import DButton from "discourse/components/d-button";
 import AcademicSubmissionModal from "../components/modal/academic-submission-modal";
+import { connectOutlet } from "discourse/lib/connectors"; // 1. Eklendi
 
-export default class AddAcademicWorkConnector extends Component {
+export default connectOutlet("user-main-nav", class AddAcademicWorkConnector extends Component { // 2. Outlet adı bağlandı
   @service modal;
   @service currentUser;
 
-  // Sadece kullanıcının kendi profilindeyse butonu göster
   get shouldShow() {
     return this.currentUser && this.currentUser.id === this.args.outletArgs.user.id;
   }
@@ -18,7 +18,7 @@ export default class AddAcademicWorkConnector extends Component {
   openSubmissionModal() {
     this.modal.show(AcademicSubmissionModal);
   }
-}
+});
 
 <template>
   {{#if this.shouldShow}}
