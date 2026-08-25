@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-# name: discourse-academic-repository
+# name: academic-repository
 # about: BEKCAN Academic Citation & Repository Plugin
 # version: 0.1.0
 # authors: Can Bekcan
-# url: https://github.com/bekcan/discourse-academic-repository
+# url: https://github.com/bekcan/academic-repository
 # required_version: 3.2.0
 
 enabled_site_setting :academic_repository_enabled
