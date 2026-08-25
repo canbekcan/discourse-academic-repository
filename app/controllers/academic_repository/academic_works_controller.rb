@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module ::DiscourseAcademicRepository
+module ::AcademicRepository
   class AcademicWorksController < ::ApplicationController
     requires_plugin "discourse-academic-repository"
     requires_login # Sadece giriş yapmış (veya edu uzantılı) üyeler kullanabilir

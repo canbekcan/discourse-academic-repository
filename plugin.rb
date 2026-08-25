@@ -13,6 +13,6 @@ require_relative "lib/discourse_academic_repository/engine"
 
 after_initialize do
   Discourse::Application.routes.append do
-    mount ::DiscourseAcademicRepository::Engine, at: "/academic"
+    mount ::AcademicRepository::Engine, at: "/academic"
   end
 end

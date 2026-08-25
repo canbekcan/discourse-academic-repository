@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module ::DiscourseAcademicRepository
+module ::AcademicRepository
   module Academic
     class DoiResolverService < ::Service::Base
       # Crossref API Entegrasyonu

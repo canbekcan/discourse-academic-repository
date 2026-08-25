@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module ::DiscourseAcademicRepository
+module ::AcademicRepository
   module Academic
     class CitationGraphService < ::Service::Base
       # Atıf ağını aynı anda güncellemeleri önlemek için Multi-site uyumlu kilit
