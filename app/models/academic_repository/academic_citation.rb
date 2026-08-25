@@ -2,7 +2,7 @@
 
 module ::AcademicRepository
   class AcademicCitation < ::ActiveRecord::Base
-    belongs_to :source_work, class_name: 'AcademicWork'
-    belongs_to :target_work, class_name: 'AcademicWork', optional: true
+    belongs_to :source_work, class_name: 'AcademicRepository::AcademicWork'
+    belongs_to :target_work, class_name: 'AcademicRepository::AcademicWork', optional: true
   end
 end
