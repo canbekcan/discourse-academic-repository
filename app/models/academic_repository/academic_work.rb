@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 module ::AcademicRepository
-  class AcademicWork < ActiveRecord::Base
-    enum work_type: { 
+  class AcademicWork < ::ActiveRecord::Base
+    # Rails 8.0 syntax requirement: positional symbol first
+    enum :work_type, { 
       journal_article: 0, 
       book: 1, 
       book_chapter: 2, 

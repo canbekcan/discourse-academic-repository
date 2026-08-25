@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module ::AcademicRepository
-  class AcademicWorkAuthor < ActiveRecord::Base
+  class AcademicWorkAuthor < ::ActiveRecord::Base
     belongs_to :academic_work
     belongs_to :academic_author
 

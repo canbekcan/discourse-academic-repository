@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 module ::AcademicRepository
-  class UserAcademicProfile < ActiveRecord::Base
-    enum role: { primary_author: 0, co_author: 1, editor: 2 }
+  class UserAcademicProfile < ::ActiveRecord::Base
+    # Rails 8.0 syntax requirement: positional symbol first
+    enum :role, { primary_author: 0, co_author: 1, editor: 2 }
 
     belongs_to :user
     belongs_to :academic_work
