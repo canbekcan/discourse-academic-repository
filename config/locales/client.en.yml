@@ -1,0 +1,7 @@
+en:
+  js:
+    academic_repository:
+      title: "Academic Repository"
+      form:
+        autofill_doi: "Autofill with DOI / ISBN"
+        work_type: "Work Type"

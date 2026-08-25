@@ -1,0 +1,4 @@
+plugins:
+  academic_repository_enabled:
+    default: false
+    client: true
