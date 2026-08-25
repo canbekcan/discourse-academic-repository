@@ -2,6 +2,20 @@ en:
   js:
     academic_repository:
       title: "Academic Repository"
+      button:
+        add_publication: "Add Publication"
       form:
+        title: "Submit Academic Work"
         autofill_doi: "Autofill with DOI / ISBN"
+        autofill_btn: "Fetch Metadata"
         work_type: "Work Type"
+        work_title: "Title"
+        abstract: "Abstract"
+        journal_name: "Journal Name"
+        isbn: "ISBN"
+        publisher: "Publisher"
+        submit: "Submit Publication"
+      types:
+        journal_article: "Journal Article"
+        book: "Book"
+        thesis: "Thesis"
