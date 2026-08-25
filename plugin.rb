@@ -9,7 +9,7 @@
 
 enabled_site_setting :academic_repository_enabled
 
-require_relative "lib/discourse_academic_repository/engine"
+require_relative "lib/academic_repository/engine"
 
 after_initialize do
   Discourse::Application.routes.append do
