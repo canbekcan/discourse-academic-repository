@@ -2,8 +2,9 @@
 
 module ::AcademicRepository
   module Academic
-    class DoiResolverService < ::Service::Base
-      # Crossref API Entegrasyonu
+    class DoiResolverService
+      # Inject the Service::Base module instead of inheriting from it
+      include ::Service::Base
       
       step :validate_input
       step :fetch_from_crossref
@@ -11,14 +12,13 @@ module ::AcademicRepository
 
       def validate_input(doi:)
         return StandardResults::Failure("DOI boş olamaz") if doi.blank?
-        # DOI regex doğrulaması (örnek basit kural)
+        # DOI regex doğrulaması
         doi.match?(/^10.\d{4,9}\/[-._;()\/:A-Z0-9]+$/i) ? StandardResults::Success(doi: doi) : StandardResults::Failure("Geçersiz DOI formatı")
       end
 
       def fetch_from_crossref(doi:)
         url = "https://api.crossref.org/works/#{URI.encode_www_form_component(doi)}"
         
-        # Hata yönetimi (try bloku veya rescue)
         begin
           response = Excon.get(url, connect_timeout: 5, read_timeout: 5)
           return StandardResults::Failure("DOI bulunamadı") unless response.status == 200
@@ -32,11 +32,10 @@ module ::AcademicRepository
       def parse_metadata(raw_data:)
         message = raw_data.dig("message")
         
-        # Standart bir Hash formatına dönüştürme
         metadata = {
           title: message.dig("title", 0),
           abstract: message.dig("abstract"),
-          work_type: 'journal_article', # Geliştirilebilir eşleştirme
+          work_type: 'journal_article',
           venue_name: message.dig("container-title", 0),
           publication_date: extract_date(message),
           authors: parse_authors(message.dig("author") || []),

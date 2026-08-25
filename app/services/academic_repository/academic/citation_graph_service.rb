@@ -2,8 +2,9 @@
 
 module ::AcademicRepository
   module Academic
-    class CitationGraphService < ::Service::Base
-      # Atıf ağını aynı anda güncellemeleri önlemek için Multi-site uyumlu kilit
+    class CitationGraphService
+      # Inject the Service::Base module instead of inheriting from it
+      include ::Service::Base
       
       step :lock_and_process
 
